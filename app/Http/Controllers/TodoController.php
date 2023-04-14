@@ -25,10 +25,33 @@ class TodoController extends Controller
         $request->validate([
             'title' => 'required|max:255',
         ]);
-        $todo = Todo::create([
-            'title' => ucfirst($request->title),
-            'user_id' => auth()->user()->id,
-        ]);
+
+        // Practical
+        // $todo = new Todo;
+        // $todo->title = $request->title;
+        // $todo->user_id = auth()->user()->id;
+        // $todo->save();
+
+        // // Query Builder way
+        // DB::table('todos')->insert([
+        //     'title' => $request->title,
+        //     'user_id' => auth()->user()->id,
+        //     'created_at' => now(),
+        //     'update_at' => now(),
+        // ]);
+
+        // Eloquent Way - Readable
+        // $todo = Todo::create([
+        //     'title' => ucfirst($request->title),
+        //     'user_id' => auth()->user()->id,
+        // ]);
+
+        // Eloquent Way - Shortest
+        $request->user()->todos()->create($request->all());
+        // $request->user()->todos()->create([
+        //     'title' => ucfirst($request->title),
+        // ]);
+
         return redirect()->route('todo.index')->with('success', 'Todo created successfully!');
     }
     public function edit()

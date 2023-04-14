@@ -17,11 +17,13 @@ class UserController extends Controller
                 ->orderBy('name')
                 ->where('id', '!=', '1')
                 ->paginate(20)
+                // ->simplePaginate(20)
                 ->withQueryString();
         } else {
             $users = User::where('id', '!=', '1')
                 ->orderBy('name')
                 ->paginate(10);
+                // ->simplePaginate(20);
         }
         return view('user.index', compact('users'));
     }
