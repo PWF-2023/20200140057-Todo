@@ -1,18 +1,18 @@
 # Tugas 6
 
 ## 1. Todo Completed
-![Alt text](screenshot/tugas6/Screenshot%20(289).png)
+![Alt text](screenshot/tugas6/TodoCompleted.png)
 ## 2. Todo Uncompleted
-![Alt text](screenshot/tugas6/Screenshot%20(290).png)
+![Alt text](screenshot/tugas6/TodoUncompleted.png)
 ## 3. Todo Edited
-![Alt text](screenshot/tugas6/Screenshot%20(291).png)
+![Alt text](screenshot/tugas6/TodoEdited.png)
 ## 4. Todo Deleted
-![Alt text](screenshot/tugas6/Screenshot%20(292).png)
+![Alt text](screenshot/tugas6/TodoDeleted.png)
 ## 5. Todo Delete All Completed Todo
-![Alt text](screenshot/tugas6/Screenshot%20(293).png)
+![Alt text](screenshot/tugas6/TodoDeletedAllCompletedtodo.png)
 ## 6. User Make Admin
-![Alt text](screenshot/tugas6/Screenshot%20(294).png)
+![Alt text](screenshot/tugas6/UserMakeadmin.png)
 ## 7. User Remove Admin
-![Alt text](screenshot/tugas6/Screenshot%20(295).png)
+![Alt text](screenshot/tugas6/UserRemoveadmin.png)
 ## 8. User Deleted
-![Alt text](screenshot/tugas6/Screenshot%20(296).png)
+![Alt text](screenshot/tugas6/UserDeleted.png)
