@@ -48,11 +48,18 @@ Route::middleware('auth')->group(function () {
     // Route::patch('/user/{user}/removeadmin', [UserController::class, 'removeadmin'])->name('user.removeadmin');
 
     //Get all user route and change with prefix user
-    Route::prefix('user')->group(function(){
-        Route::get('/', [UserController::class, 'index'])->name('user.index');
-        Route::delete('/{user}', [UserController::class, 'destroy'])->name('user.destroy');
-        Route::patch('/{user}/makeadmin', [UserController::class, 'makeadmin'])->name('user.makeadmin');
-        Route::patch('/{user}/removeadmin', [UserController::class, 'removeadmin'])->name('user.removeadmin');
+    // Route::prefix($prefix 'user') ->middleware($middleware 'admin')->group($callback function(){
+    //     Route::get($uri '/', $action [UserController::class, 'index'])->name( $name'user.index');
+    //     Route::delete($uri '/{user}',$action [UserController::class, 'destroy'])->name(name 'user.destroy');
+    //     Route::patch($uri '/{user}/makeadmin',$action [UserController::class, 'makeadmin'])->name(name 'user.makeadmin');
+    //     Route::patch($uri '/{user}/removeadmin',$action [UserController::class, 'removeadmin'])->name(name 'user.removeadmin');
+    // });
+
+    Route::middleware('admin')->group(function() {
+        Route::get('/user', [UserController::class, 'index'])->name('user.index');
+        Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+        Route::patch('/user/{user}/makeadmin', [UserController::class, 'makeadmin'])->name('user.makeadmin');
+        Route::patch('/user/{user}/removeadmin', [UserController::class, 'removeadmin'])->name('user.removeadmin');
     });
 });
 
