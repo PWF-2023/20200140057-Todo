@@ -8,6 +8,7 @@
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+        {{-- Create Button & Notification --}}
         <div class="p-6 text-xl text-gray-900 dark:text-gray-100">
             <div class="flex items-center justify-between">
                 <div>
@@ -29,6 +30,8 @@
                 </div>
             </div>
         </div>
+
+        {{-- Table Todo --}}
         <div class="relative overflow-x-auto">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -36,7 +39,7 @@
                         <th scope="col" class="px-6 py-3">
                             Title
                         </th>
-                        <th scope="col" class="px-6 py-3 md:block">
+                        <th scope="col" class="hidden px-6 py-3 md:block">
                             Status
                         </th>
                         <th scope="col" class="px-6 py-3">

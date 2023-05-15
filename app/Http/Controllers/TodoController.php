@@ -44,13 +44,13 @@ class TodoController extends Controller
         // ]);
 
         // Eloquent Way - Readable
-        // $todo = Todo::create([
-        //     'title' => ucfirst($request->title),
-        //     'user_id' => auth()->user()->id,
-        // ]);
+        $todo = Todo::create([
+            'title' => ucfirst($request->title),
+            'user_id' => auth()->user()->id,
+        ]);
 
         // Eloquent Way - Shortest
-        $request->user()->todos()->create($request->all());
+        // $request->user()->todos()->create($request->all());
         // $request->user()->todos()->create([
         //     'title' => ucfirst($request->title),
         // ]);
@@ -59,14 +59,21 @@ class TodoController extends Controller
     }
     public function edit(Todo $todo)
     {
+        // CODE BEFORE REFACTORING
+        // if (auth()->user()->id == $todo->user_id) {
+        //     // dd($todo);
+        //     return view('todo.edit', compact('todo'));
+        // } else {
+        //     //abort(403);
+        //     //abort(403, 'Not authorized');
+        //     return redirect()->route('todo.index')->with('danger', 'You are not authorized to edit this todo!');
+        // }
+
+        // CODE AFTER REFACTORING
         if (auth()->user()->id == $todo->user_id) {
-            // dd($todo);
             return view('todo.edit', compact('todo'));
-        } else {
-            //abort(403);
-            //abort(403, 'Not authorized');
-            return redirect()->route('todo.index')->with('danger', 'You are not authorized to edit this todo!');
         }
+        return redirect()->route('todo.index')->with('danger', 'You are not authorized to edit this todo!');
     }
 
     public function update(Request $request, Todo $todo)
